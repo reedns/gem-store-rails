@@ -5,10 +5,10 @@ class CreatingProductsTest < ActionDispatch::IntegrationTest
     post '/products', { product: {
       name: 'Blerpcon',
       description: 'Neat!',
-      price: 1000,
-      }}.to_json,
-      {'Accept' => 'application/json',
-       'Content-type' => 'application/json'}
+      price: 1000
+    } }.to_json,
+         'Accept' => 'application/json',
+         'Content-type' => 'application/json'
 
     assert_equal 201, response.status
     assert_equal Mime::JSON, response.content_type
@@ -22,10 +22,10 @@ class CreatingProductsTest < ActionDispatch::IntegrationTest
   test 'does not create products with invalid data' do
     post '/products', { product: {
       description: 'Neat!',
-      price: 1000,
-      }}.to_json,
-      {'Accept' => 'application/json',
-       'Content-type' => 'application/json'}
+      price: 1000
+    } }.to_json,
+         'Accept' => 'application/json',
+         'Content-type' => 'application/json'
 
     assert_equal 422, response.status
 
