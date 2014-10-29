@@ -11,6 +11,7 @@ gem 'turbolinks'
 gem 'uglifier', '>= 1.3.0'
 gem 'pg'
 gem 'bootstrap-sass', '~> 3.2.0'
+gem 'twitter-bootstrap-rails'
 
 group :production do
   gem 'rails_12factor'
