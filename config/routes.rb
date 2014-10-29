@@ -3,4 +3,5 @@ Rails.application.routes.draw do
   root 'angular#show'
 
   resources :products, only: :index
+  resources :categories
 end
