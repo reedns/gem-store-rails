@@ -1,5 +1,6 @@
 class CategorySerializer < ActiveModel::Serializer
-  attributes :id,
+  attributes :id
 
+  embed :ids
   has_many :products
 end

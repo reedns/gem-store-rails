@@ -2,9 +2,17 @@ require 'test_helper'
 
 class ListingProductsTest < ActionDispatch::IntegrationTest
   setup do
-    @sparkly = Category.create!(name:'Sparkly!')
-    Product.create!(name: "Zircon", description: "Cool", price: "110.50", category_id: @sparkly.id)
-    Product.create!(name: "Mircon", description: "Cool!", price: "1110.50", category_id: @sparkly.id)
+    @sparkly = Category.create!(name: 'Sparkly!')
+    Product.create!(name: 'Zircon',
+                    description: 'Cool',
+                    price: '110.50',
+                    category_id:
+                    @sparkly.id)
+
+    Product.create!(name: 'Mircon',
+                    description: 'Cool!',
+                    price: '1110.50',
+                    category_id: @sparkly.id)
   end
 
   test 'listing products' do
@@ -18,7 +26,7 @@ class ListingProductsTest < ActionDispatch::IntegrationTest
     assert_equal @sparkly.id, product[:category_id]
   end
 
-  test 'lists books by price products' do
+  test 'lists by price products' do
     get '/products?price=110.50'
 
     assert_equal 200, response.status

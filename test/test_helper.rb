@@ -2,11 +2,12 @@ ENV['RAILS_ENV'] ||= 'test'
 require File.expand_path('../../config/environment', __FILE__)
 require 'rails/test_help'
 
-class ActiveSupport::TestCase
-  # Setup all fixtures in test/fixtures/*.yml for all tests in alphabetical order.
-  fixtures :all
-
-  def json(body)
-    JSON.parse(body, symbolize_names: true)
+module ActiveSupport
+  class TestCase
+    fixtures :all
   end
+end
+
+def json(body)
+  JSON.parse(body, symbolize_names: true)
 end
