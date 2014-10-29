@@ -7,6 +7,6 @@ class ActiveSupport::TestCase
   fixtures :all
 
   def json(body)
-    JSON.parse(body)
+    JSON.parse(body, symbolize_names: true)
   end
 end
