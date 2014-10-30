@@ -1,5 +1,5 @@
-
 (function (){
+    var app = angular.module('gemStore', ['store-directives']);
     app.controller('ReviewController', function() {
     this.review = {};
 
@@ -10,3 +10,4 @@
     };
   });
 })()
+
