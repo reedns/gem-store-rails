@@ -1,5 +1,5 @@
-<div data-ng-app='gemStore'>
-  <div ng-controller="StoreController as store">
+<div data-ng-app='GemStore'>
+  <div ng-controller="StoreCtrl as store" data-ng-init="index()">
 
     <header>
       <h1 class="text-center">Flatlander Crafted Gems</h1>
@@ -19,5 +19,23 @@
         <product-tabs></product-tabs>
       </div>
     </div>
+
+    <form name="newProductForm" ng-submit="create(newProduct)">
+      <fieldset class="form-group">
+        <input type="text" ng-model="newProduct.name">
+      </fieldset>
+
+       <fieldset class="form-group">
+        <input type="text" ng-model="newProduct.price">
+      </fieldset>
+
+      <fieldset class="form-group">
+        <input type="text-area" ng-model="product.description" title="description">
+      </fieldset>
+
+      <fieldset class="form-group">
+        <input type="submit" class="btn btn-primary" value="Save" />
+      </fieldset>
+    </form>
   </div>
 </div>

@@ -5,8 +5,6 @@
 
     $scope.addReview = function(product) {
       product.reviews.push($scope.review);
-
-      $scope.review = {};
     };
   }]);
 })();
