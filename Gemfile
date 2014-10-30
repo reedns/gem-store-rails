@@ -15,7 +15,6 @@ gem 'twitter-bootstrap-rails'
 gem 'active_model_serializers'
 gem 'rubocop'
 
-
 group :production do
   gem 'rails_12factor'
 end
