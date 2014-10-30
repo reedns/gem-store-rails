@@ -1,5 +1,3 @@
-//= require_self
-
 (function(){
     var app = angular.module('store-directives', []);
 
@@ -56,4 +54,4 @@
         controllerAs: "gallery"
       };
     });
-  })();
+})();
