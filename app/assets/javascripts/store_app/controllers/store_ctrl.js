@@ -6,10 +6,6 @@
     $scope.errors = [];
     $scope.products = [];
 
-    // $http.get('/products/store-products.json').success(function(data){
-    //   $scope.products = data;
-    // });
-
     $scope.index = function() {
       $http.get('/v1/products')
         .success(function(data) {
