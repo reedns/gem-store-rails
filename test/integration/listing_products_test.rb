@@ -16,7 +16,7 @@ class ListingProductsTest < ActionDispatch::IntegrationTest
   end
 
   test 'listing products' do
-    get '/products'
+    get '/v1/products'
 
     assert_equal 200, response.status
     assert_equal Mime::JSON, response.content_type
@@ -24,13 +24,5 @@ class ListingProductsTest < ActionDispatch::IntegrationTest
     products = json(response.body)[:products]
     product = products.first
     assert_equal @sparkly.id, product[:category_id]
-  end
-
-  test 'lists by price products' do
-    get '/products?price=110.50'
-
-    assert_equal 200, response.status
-    assert_equal Mime::JSON, response.content_type
-    assert_equal 1, json(response.body)[:products].size
   end
 end

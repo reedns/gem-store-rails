@@ -10,6 +10,9 @@
     <li data-ng-class="{ active:tab.isSet(3) }">
       <a href ng-click="tab.setTab(3)">Reviews</a>
     </li>
+    <li data-ng-class="{ active:tab.isSet(4) }">
+      <a href ng-click="tab.setTab(4)">Edit</a>
+    </li>
   </ul>
 
   <!--  Description Tab's Content  -->
@@ -21,4 +24,47 @@
   <!--  Review Tab's Content  -->
   <product-reviews data-ng-show="tab.isSet(3)"></product-reviews>
 
+  <div data-ng-show="tab.isSet(4)"><h4>
+    <form name="productForm" >
+      <fieldset class="form-group">
+        <input type="text" data-ng-model="product.name" placeholder="Name">
+      </fieldset>
+
+      <fieldset class="form-group">
+        <input type="text" data-ng-model="product.price" placeholder="Price">
+      </fieldset>
+
+      <fieldset class="form-group">
+        <input type="text-area" data-ng-model="product.description" title="description" placeholder="Description">
+      </fieldset>
+
+      <fieldset class="form-group">
+        <input type="text" data-ng-model="product.shine" placeholder="Shine">
+      </fieldset>
+
+      <fieldset class="form-group">
+        <input type="text" data-ng-model="product.faces" placeholder="Faces">
+      </fieldset>
+
+      <fieldset class="form-group">
+        <input type="text" data-ng-model="product.rarity" placeholder="Rarity">
+      </fieldset>
+
+      <fieldset class="form-group">
+        <input type="text" data-ng-model="product.color" placeholder="Color">
+      </fieldset>
+
+      <fieldset class="form-group">
+        <input type="submit" class="btn btn-primary" data-ng-click="update(product)" value="Save"/>
+      </fieldset>
+    </form>
+
+    <div data-ng-hide="deleteConfirm= false">
+      <button class="btn btn-warning" data-ng-click="product.deleteConfirm = true">Delete</button>
+    </div>
+    <div data-ng-show="product.deleteConfirm">
+      <button class="btn btn-danger" data-ng-click="destroy(product)">Confirm</button>
+      <button class="btn btn-primary" data-ng-click="product.deleteConfirm = false">Cancel</button>
+    </div>
+  </div>
 </section>

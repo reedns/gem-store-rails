@@ -1,0 +1,33 @@
+ <form name="productForm" >
+    <fieldset class="form-group">
+      <input type="text" data-ng-model="newProduct.name" placeholder="Name">
+    </fieldset>
+
+    <fieldset class="form-group">
+      <input type="text" data-ng-model="newProduct.price" placeholder="Price">
+    </fieldset>
+
+    <fieldset class="form-group">
+      <input type="text-area" data-ng-model="product.description" title="description" placeholder="Description">
+    </fieldset>
+
+    <fieldset class="form-group">
+      <input type="text" data-ng-model="newProduct.shine" placeholder="Shine">
+    </fieldset>
+
+    <fieldset class="form-group">
+      <input type="text" data-ng-model="newProduct.faces" placeholder="Faces">
+    </fieldset>
+
+    <fieldset class="form-group">
+      <input type="text" data-ng-model="newProduct.rarity" placeholder="Rarity">
+    </fieldset>
+
+    <fieldset class="form-group">
+      <input type="text" data-ng-model="newProduct.color" placeholder="Color">
+    </fieldset>
+
+    <fieldset class="form-group" name="createForm">
+      <input type="submit" class="btn btn-primary" data-ng-click="create(newProduct)" value="Save"/>
+    </fieldset>
+</form>

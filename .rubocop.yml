@@ -9,8 +9,6 @@ AllCops:
     - lib/tasks/*
   Exclude:
     - bin/*
-    - db/migrations
-    - db/migrate/*
-    - db/schema.rb
+    - db/*
     - vendor/**/*
     - config/*

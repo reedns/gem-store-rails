@@ -3,7 +3,7 @@ Rails.application.routes.draw do
   root 'angular#index'
 
   namespace :v1 do
-    resources :products, except: [:show, :edit, :update]
+    resources :products, except: [:show, :edit]
     resources :categories
   end
 end
