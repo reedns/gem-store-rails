@@ -1,5 +1,5 @@
 (function() {
-   var app = angular.module('gemStore');
+  var app = angular.module('gemStore');
 
   app.controller('StoreCtrl', ['$scope', '$http', function($scope, $http) {
     $scope.errors = [];
