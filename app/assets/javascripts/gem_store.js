@@ -47,27 +47,3 @@
     };
   }]);
 })()
-
-// +  app.run(['$rootScope','$cookies','$http', function($rootScope, $cookies,$http){
-// +    $rootScope.isLoggedIn = function(){
-// +      var currentUser = $cookies.c_user;
-// +      return typeof(currentUser) !== 'undefined' && currentUser !== '';
-// +    };
-// +    $rootScope.currentUser = function(){
-// +      console.log($cookies.c_user);
-// +      return $cookies.c_user;
-// +    };
-// +    $rootScope.logOut = function(){
-// +      $http({
-// +        method:'DELETE',
-// +        url: '/users/sign_out'
-// +      })
-// +      .success(function(){
-// +        $cookies.c_user = '';
-// +      })
-// +      .error(function(){
-// +        console.log('could not log out');
-// +      });
-// +    };
-// +
-// +  }]);

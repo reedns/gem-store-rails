@@ -1,16 +1,16 @@
 (function() {
-  var app = angular.module('NotesApp');
+  var app = angular.module('gemStore');
   app.controller('UsersCtrl', ['$http', '$scope', '$cookies', '$location', function($scope, $http, $cookies, $location) {
     $scope.create = function(user) {
-      $http.post({
+      $http({
         method: 'POST',
         url: '/users',
-        data: {user: user}
+        data: { user: user }
       })
         .success(function(data) {
           $cookies.current_user = data['email'];
-          $location.path('/notes');
-          console.log('created users');
+          $location.path('/');
+          console.log('created user');
         })
         .error(function(data, status) {
           console.log(data);
@@ -20,16 +20,16 @@
     $scope.signIn = function(user) {
       $http({
         method: 'POST',
-        url: '/users/sign_in'
-        data: {user: user}
+        url: '/users/sign_in',
+        data: { user: user }
       })
         .success(function(data) {
           $cookies.current_user = data['email'];
-          $location.path('/notes');
+          $location.path('/');
         })
         .error(function(data, status) {
-          console.log(data)
-          console.log(status)
+          console.log(data);
+          console.log(status);
         });
     };
   }]);
