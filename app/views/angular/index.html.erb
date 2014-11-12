@@ -1,0 +1,56 @@
+<div data-ng-app='gemStore'>
+  <div ng-controller="StoreCtrl" data-ng-init="index()">
+
+    <header>
+      <h1 class="text-center">Flatlander Crafted Gems</h1>
+      <h2 class="text-center">– an Angular store –</h2>
+    </header>
+
+    <!--  Products Container  -->
+    <div class="list-group">
+      <!--  Product Container  -->
+      <div class="list-group-item" data-ng-repeat="product in products">
+        <h3>{{product.name}} <em class="pull-right">{{product.price | currency}}</em></h3>
+
+        <!-- Image Gallery  -->
+        <product-gallery></product-gallery>
+
+        <!-- Product Tabs  -->
+        <product-tabs></product-tabs>
+      </div>
+    </div>
+
+    <div class="list-group">
+      <button class="btn btn-success" data-ng-click="data.creating = true" data-ng-hide="data.creating == true">Add a New Gem</button>
+      <button class="btn btn-info" data-ng-click="data.creating = false" data-ng-hide="data.creating == false || data.creating == null">Cancel</button>
+    </div>
+    <div class="list-group">
+      <form name="newProductForm" data-ng-show="data.creating == true" >
+        <fieldset class="form-group">
+          <input type="text" data-ng-model="newProduct.name" placeholder="Name">
+        </fieldset>
+        <fieldset class="form-group">
+          <input type="text" data-ng-model="newProduct.price" placeholder="Price">
+        </fieldset>
+        <fieldset class="form-group">
+          <input type="text-area" data-ng-model="product.description" title="description" placeholder="Description">
+        </fieldset>
+        <fieldset class="form-group">
+          <input type="text" data-ng-model="newProduct.shine" placeholder="Shine">
+        </fieldset>
+        <fieldset class="form-group">
+          <input type="text" data-ng-model="newProduct.faces" placeholder="Faces">
+        </fieldset>
+        <fieldset class="form-group">
+          <input type="text" data-ng-model="newProduct.rarity" placeholder="Rarity">
+        </fieldset>
+        <fieldset class="form-group">
+          <input type="text" data-ng-model="newProduct.color" placeholder="Color">
+        </fieldset>
+        <fieldset class="form-group" name="createForm">
+          <input type="submit" class="btn btn-primary" data-ng-click="create(newProduct)" value="Save"/>
+        </fieldset>
+      </form>
+    </div>
+  </div>
+</div>

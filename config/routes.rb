@@ -1,7 +1,9 @@
 Rails.application.routes.draw do
-  get 'angular/show'
-  root 'angular#show'
+  get 'angular/index'
+  root 'angular#index'
 
-  resources :products, except: [:show, :edit, :update]
-  resources :categories
+  namespace :v1 do
+    resources :products, except: [:show, :edit]
+    resources :categories
+  end
 end
