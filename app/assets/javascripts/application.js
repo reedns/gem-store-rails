@@ -14,4 +14,6 @@
 //= require jquery_ujs
 //= require twitter/bootstrap
 //= require angular.min
+//= require angular-cookies
+//= require angular-route
 //= require gem_store

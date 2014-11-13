@@ -1,0 +1,28 @@
+<div data-ng-controller="UsersCtrl">
+  <form name="newUserForm" data-ng-show="!isLoggedIn() && createNewUser" data-ng-submit="create(newUser)">
+    <label>Email</label>
+    <input type="text" data-ng-model="newUser.email"><br>
+    <label>Password</label>
+    <input type="password" data-ng-model="newUser.password"><br>
+    <label>Password Confirmation</label>
+    <input type="password" data-ng-model="newUser.password_confirmation"><br>
+    <button data-ng-disabled="newUserForm.$invalid">Create User</button>
+  </form>
+
+  <form name ="loginForm" data-ng-show="!isLoggedIn() && !createNewUser" data-ng-submit="signIn(user)">
+    <label>Email</label>
+    <input type='text' required data-ng-model="user.email"><br>
+    <label>Password</label>
+    <input type="password" required data-ng-model="user.password"></br>
+    <button data-ng-show="!createNewUser" data-ng-disabled="loginForm.$invalid">Sign In</button>
+  </form>
+
+  <div>
+    <button data-ng-click="createNewUser = !createNewUser">{{createNewUser ? 'Have an account?' : 'Create New User'}}</button>
+  </div>
+
+  <div data-ng-show="isLoggedIn()">
+    <p>Hello {{currentUser()}}</p>
+    <a href data-ng-click="logout()">Log Out</a>
+  </div>
+</div>

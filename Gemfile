@@ -14,6 +14,7 @@ gem 'bootstrap-sass', '~> 3.2.0'
 gem 'twitter-bootstrap-rails'
 gem 'active_model_serializers'
 gem 'rubocop'
+gem 'devise'
 
 group :production do
   gem 'rails_12factor'
