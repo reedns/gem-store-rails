@@ -1,6 +1,6 @@
 (function() {
   var app = angular.module('gemStore');
-  app.controller('UsersCtrl', ['$http', '$scope', '$cookies', '$location', function($scope, $http, $cookies, $location) {
+  app.controller('UsersCtrl', ['$http', '$scope', '$cookieStore', '$location', function($scope, $http, $cookieStore, $location) {
     $scope.create = function(user) {
       $http({
         method: 'POST',
@@ -8,7 +8,7 @@
         data: { user: user }
       })
         .success(function(data) {
-          $cookies.current_user = data['email'];
+          $cookieStore.put('currentUser', data);
           $location.path('/');
           console.log('created user');
         })
@@ -24,7 +24,7 @@
         data: { user: user }
       })
         .success(function(data) {
-          $cookies.current_user = data['email'];
+          $cookieStore.put('currentUser', data);
           $location.path('/');
         })
         .error(function(data, status) {

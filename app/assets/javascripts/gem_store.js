@@ -23,14 +23,14 @@
       });
   }]);
 
-  app.run(['$rootScope', '$cookies', '$http', function($rootScope, $cookies, $http) {
+  app.run(['$rootScope', '$cookieStore', '$http', function($rootScope, $cookieStore, $http) {
     $rootScope.isLoggedIn = function() {
-      var currentUser = $cookies.current_user
+      var currentUser = $cookieStore.get('currentUser')
       return (typeof($currentUser) !== 'undefined' && currentUser !== '');
     };
 
     $rootScope.currentUser = function() {
-      return $cookies.current_user;
+      return $cookieStore.get('currentUser');
     };
 
     $rootScope.logOut = function() {
@@ -39,7 +39,7 @@
         url: '/users/sign_out'
       })
         .success(function() {
-          $cookies.current_user = '';
+          $cookieStore.remove('currentUser');
         })
         .error(function() {
           console.log('Could not log out');
